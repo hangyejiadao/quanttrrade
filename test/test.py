@@ -33,6 +33,7 @@ class MyTestCase(unittest.TestCase):
     def test_Test(self):
         de = Demo()
         print(123)
+        print(123)
 
     def test_tick(self):
         print("MetaTrader5 package author: ", mt5.__author__)
