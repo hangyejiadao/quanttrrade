@@ -1,9 +1,9 @@
-<<<<<<< HEAD
+ 
 /.idea
 __pycache__
-/__pycache__
-=======
+/__pycache__ 
+*/__pycache__
 *.pyc
 test/__pycache__/test.cpython-39.pyc
 *.__pycache__
->>>>>>> 7463b04b19fbfad5bc5082e4e65357938ca47ffe
+ 
