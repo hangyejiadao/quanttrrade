@@ -92,16 +92,17 @@ class MyTestCase(unittest.TestCase):
         import pytz
 
         # 建立与MetaTrader 5程序端的连接
-        if not mt5.initialize():
+        if not mt5.initialize(login=25840593, server="Exness-MT5Real", password="Hangye1993"):
             print("initialize() failed, error code =", mt5.last_error())
-            quit()
+
+
 
         # set time zone to UTC
         timezone = pytz.timezone("Etc/UTC")
         # create 'datetime' object in UTC time zone to avoid the implementation of a local time zone offset
-        utc_from = datetime(2022,9, 7, tzinfo=timezone)
+        utc_from = datetime(2022,9, 1, tzinfo=timezone)
         # request 100 000 EURUSD ticks starting from 10.01.2019 in UTC time zone
-        ticks = mt5.copy_ticks_from("XAUUSD", utc_from, 100000, mt5.COPY_TICKS_ALL)
+        ticks = mt5.copy_ticks_from(mt5.symbol_info("XAUUSD"), utc_from, 100000, mt5.COPY_TICKS_ALL)
         print("Ticks received:", len(ticks))
 
         # shut down connection to the MetaTrader 5 terminal
@@ -123,7 +124,11 @@ class MyTestCase(unittest.TestCase):
 
         # display data
         print("\nDisplay dataframe with ticks")
-        print(ticks_frame.head(10))     
-     
+        print(ticks_frame.head(10))
+
+    def test_A(self):
+        
+
+
 if __name__ == '__main__':
     unittest.main()
